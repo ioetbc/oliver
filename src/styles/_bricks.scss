@@ -1,0 +1,9 @@
+.grid-item {
+    width: 200px;
+    @media screen and (min-width: 768px) {
+        width: 500px;
+    }
+    @media screen and (min-width: 1042px) {
+        width: 600px;
+    }
+}

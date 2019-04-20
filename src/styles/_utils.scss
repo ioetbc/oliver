@@ -1,0 +1,22 @@
+
+
+.shop {
+    cursor: not-allowed;
+    &:hover + .tool-tip-coming-soon {
+        visibility: visible;
+    }
+}
+
+.tool-tip-coming-soon {
+    visibility: hidden;
+    background: #3a3a3a;
+    display: table;
+    padding: 5px 8px;
+    color: white;
+    border-radius: 3px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    left: 72px;
+    position: absolute;
+}

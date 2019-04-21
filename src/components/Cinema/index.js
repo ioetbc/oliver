@@ -42,7 +42,7 @@ class CinemaMode extends Component {
         const { imageId, imageDetails, dismiss, imagePath } = this.props;
         const { showDetails } = this.state;
         const currentImage = parseInt(this.state.image) || imageId;
-        const path = imagePath[currentImage - 1]
+        const image = imagePath[currentImage]
 
         return (
             <React.Fragment>
@@ -59,7 +59,7 @@ class CinemaMode extends Component {
                         <img
                             style={{ height: '85vh' }} 
                             id={'cinemaImage' + imageId}
-                            src={require(`../../images/optimized/${path}`)}
+                            src={require(`../../images/optimized/${image}`)}
                         />
                         <div className="slide">
                             <div

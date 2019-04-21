@@ -7,6 +7,7 @@ import ImageStream from "./components/ImageStream";
 import Lightbox from "./components/Lightbox";
 import CinemaMode from './components/Cinema/index.js';
 
+import 'normalize.css/normalize.css'
 import "./styles/styles.scss";
 
 class App extends Component {

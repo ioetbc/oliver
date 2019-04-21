@@ -9,28 +9,12 @@ import Bricks from 'bricks.js'
         }
     };
 
-    updateDimensions() {
-        const sizes = [
-            { columns: 1, gutter: 10 },
-            { mq: '768px', columns: 2, gutter: 25 },
-            { mq: '1400px', columns: 3, gutter: 25 },
-            { mq: '1768px', columns: 4, gutter: 25 }
-        ];
-        const bricks = Bricks({
-            container: '.grid',
-            packed: 'data-packed',
-            sizes: sizes,
-            position: true,
-        });
-        bricks.pack()
-    }
-
     componentDidMount() {
         const sizes = [
-            { columns: 1, gutter: 10 },
-            { mq: '768px', columns: 2, gutter: 25 },
-            { mq: '1400px', columns: 3, gutter: 25 },
-            { mq: '1768px', columns: 4, gutter: 25 }
+            { columns: 1, gutter: 25 },
+            { mq: '800px', columns: 2, gutter: 25 },
+            { mq: '1300px', columns: 3, gutter: 25 },
+            { mq: '1800px', columns: 4, gutter: 25 },
         ];
         const bricks = Bricks({
             container: '.grid',

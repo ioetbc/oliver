@@ -10,10 +10,10 @@
 }
 .navigation {
     display: block;
-    flex: 2;
     z-index: 1;
     h2 {
         display: table;
+        font-size: 20px;
     }
     .anchors {
         ul {
@@ -26,7 +26,7 @@
                 }
                 a {
                     display: inline-block;
-                    font-size: 15px;
+                    font-size: 14px;
                     line-height: 28px;
                     text-decoration: none;
                     text-transform: capitalize;

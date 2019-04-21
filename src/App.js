@@ -1269,18 +1269,22 @@ class App extends Component {
     const imagePath = images.map(p => p.optimized);
     const imageDetails = images.map(d => d.imageDetails);
 
+    const desktopWidth = window.matchMedia('(min-width: 1000px)').matches;
+
     return (
       <React.Fragment>
         <div style={{ display: lightbox ? "none" : "" }}>
           <Header />
           <div class="homepage-wrapper">
+          {desktopWidth &&
             <Navigation
-              images={images}
-              uniqueClass={uniqueClass}
-              handleNavigation={this.handleNavigation}
-              navItem={navItem}
-              stickyNav={stickyNav}
-            />
+            images={images}
+            uniqueClass={uniqueClass}
+            handleNavigation={this.handleNavigation}
+            navItem={navItem}
+            stickyNav={stickyNav}
+          />
+          }
             <ImageStream
               images={images}
               imagePath={imagePath}
@@ -1294,7 +1298,7 @@ class App extends Component {
             />
           </div>
         </div>
-        {cinemaMode &&
+        {cinemaMode && desktopWidth &&
           <CinemaMode
               imageId={imageId}
               imagePath={imagePath}

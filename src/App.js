@@ -1232,8 +1232,7 @@ class App extends Component {
       allClasses,
       imageClass => imageClass === itemClass
     );
-    const slideToImage = document.getElementById("image-stream-" + classIndex)
-      .offsetTop;
+    const slideToImage = document.getElementById("image-stream-" + classIndex).offsetTop;
 
     window.scrollTo({
       top: slideToImage,

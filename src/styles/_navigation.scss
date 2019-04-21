@@ -19,22 +19,24 @@
         ul {
             list-style: none;
             padding: 0;  
-            li a {
-                display: inline-block;
-                font-size: 15px;
-                line-height: 28px;
+            li {
                 color: rgba(0, 0, 0, .3);
-                text-decoration: none;
-                text-transform: capitalize;
-                cursor: pointer;
-
                 &.active {
-                    color: #3a3a3a;
+                    color: red;
                 }
-
-                &:hover {
-                    color: #3a3a3a;
-                }
+                a {
+                    display: inline-block;
+                    font-size: 15px;
+                    line-height: 28px;
+                    text-decoration: none;
+                    text-transform: capitalize;
+                    cursor: pointer;
+    
+    
+                    &:hover {
+                        color: #3a3a3a;
+                    }
+                } 
             } 
         }
     }

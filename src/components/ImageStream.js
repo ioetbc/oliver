@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Bricks from 'bricks.js'
 
  class ImageStream extends Component {

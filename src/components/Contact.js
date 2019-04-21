@@ -32,25 +32,25 @@ import ButtonClose from './Utils/ButtonClose'
                         action="https://formspree.io/ioetbc@gmail.com"
                         method='POST'
                     >
-                        <TextField
-                            label={'Name'}
-                            type={'text'}
-                            id={'name'}
-                        />
-                        <TextField
-                            label={'Email address'}
-                            type={'email'}
-                            id={'email'}
-                        />
-                        <TextField
-                            label={'Phone'}
-                            type={'number'}
-                            id={'phone'}
-                        />
-                        <Button 
-                            text={'submit'}
-                            type={'submit'}
-                        />
+                        <div className='text-field--container'>
+                            <div className='text-field'>
+                                <input className='text-field--input' id="name" placeholder=' ' type='text' />
+                                <label className='text-field--label' for='name'>Name</label>
+                            </div>
+                        </div>
+                        <div className='text-field--container'>
+                            <div className='text-field'>
+                                <input className='text-field--input' id="email" placeholder=' ' type='text' />
+                                <label className='text-field--label' for='email'>Email address</label>
+                            </div>
+                        </div>
+                        <div className='text-field--container'>
+                            <div className='text-field'>
+                                <input className='text-field--input' id="phone" placeholder=' ' type='number' />
+                                <label className='text-field--label' for='phone'>Phone number</label>
+                            </div>
+                        </div>
+                        <button class="pure-material-button-contained">submit</button>
                     </form>
                 </div>
             </React.Fragment>

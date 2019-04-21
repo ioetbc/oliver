@@ -9,6 +9,7 @@ class CinemaMode extends Component {
             showDetails: false,
             hideRightChevon: false,
             landscape: false,
+            currentImage: false,
         }
         this.handleDetails = this.handleDetails.bind(this);
         this.handleNewImage = this.handleNewImage.bind(this);
@@ -21,28 +22,18 @@ class CinemaMode extends Component {
     }
 
     handleNewImage(click, currentImage) {
-        const { imageDetails } = this.props;
-
-        if (click === 'right' && currentImage < imageDetails.length) {
-            this.setState({
-                image: currentImage + 1,
-            });
-        } else if (click === 'right' && currentImage === imageDetails.length) {
-            this.setState({
-                image: 1,
-            });
+        if (click === 'right') {
+            this.setState(() => ({ currentImage: currentImage + 1 }));
         } else {
-            this.setState({
-                image: currentImage - 1,
-            });
+            this.setState(() => ({ currentImage: currentImage - 1 }));
         }
     }
 
     render() {
-        const { imageId, imageDetails, dismiss, imagePath } = this.props;
-        const { showDetails } = this.state;
-        const currentImage = parseInt(this.state.image) || imageId;
-        const image = imagePath[currentImage]
+        const { startingImage, imageDetails, dismiss, imagePath } = this.props;
+        const { showDetails, currentImage } = this.state;
+
+        const imageNo = currentImage || startingImage;
 
         return (
             <React.Fragment>
@@ -58,27 +49,27 @@ class CinemaMode extends Component {
                     <div style={{ position: 'relative' }}>
                         <img
                             style={{ height: '85vh' }} 
-                            id={'cinemaImage' + imageId}
-                            src={require(`../../images/optimized/${image}`)}
+                            id={'cinemaImage' + startingImage}
+                            src={require(`../../images/optimized/${imagePath[imageNo]}`)}
                         />
                         <div className="slide">
+
                             <div
-                                className='left'
-                                value={currentImage}
-                                onClick={() => this.handleNewImage('left', currentImage)}
-                            ></div>
+                                className={imageNo > 0 && 'left'}
+                                onClick={() => this.handleNewImage('left', imageNo)}
+                            />
+
                             <div
-                                className='right'
-                                value={imageId}
-                                onClick={() => this.handleNewImage('right', currentImage)}
+                                className={imageNo + 1 < imageDetails.length && 'right'}
+                                onClick={() => this.handleNewImage('right', imageNo)}
                             ></div>
                         </div>
-                        <p style={{ position: 'absolute', left: 0, right: 0, color: '#3a3a3a', textAlign: 'center', marginTop: '10px' }}>{currentImage}</p>
+                        <p style={{ position: 'absolute', left: 0, right: 0, color: '#3a3a3a', textAlign: 'center', marginTop: '10px' }}>{imageNo + 1}</p>
                     </div>
                     {showDetails &&
                         <ImageDetails 
                             imageDetails={imageDetails}
-                            imageId={imageId}
+                            imageId={imageNo}
                             handleDetails={this.handleDetails}
                         />
                     }

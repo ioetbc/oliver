@@ -1300,7 +1300,7 @@ class App extends Component {
         </div>
         {cinemaMode && desktopWidth &&
           <CinemaMode
-              imageId={imageId}
+              startingImage={imageId}
               imagePath={imagePath}
               imageDetails={imageDetails}
               dismiss={this.handleSlideShow}

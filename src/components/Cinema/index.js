@@ -75,11 +75,6 @@ class CinemaMode extends Component {
                         </div>
                         <p style={{ position: 'absolute', left: 0, right: 0, color: '#3a3a3a', textAlign: 'center', marginTop: '10px' }}>{currentImage}</p>
                     </div>
-                    <img
-                        onClick={this.handleDetails}
-                        className='details-eye'
-                        src={require('../../images/misc/eye.svg')}
-                    />
                     {showDetails &&
                         <ImageDetails 
                             imageDetails={imageDetails}

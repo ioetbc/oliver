@@ -68,7 +68,7 @@ import Bricks from 'bricks.js'
 
     render() {
         const { lightbox } = this.props;
-        const { images, handleLightBox } = this.props;
+        const { images, handleSlideShow } = this.props;
 
         return (
             <React.Fragment>
@@ -78,7 +78,7 @@ import Bricks from 'bricks.js'
                             id={'image-stream-' + i}
                             className="grid-item lazy"
                             style={{ height: image.height, cursor: 'pointer' }}
-                            onClick={() => handleLightBox(i, image.optimized,)}
+                            onClick={() => handleSlideShow(i, image.optimized,)}
                             src={require(`../images/placeholder/${image.placeholder}`)}
                             data-src={require(`../images/optimized/${image.optimized}`)}
                             data-srcset={require(`../images/optimized/${image.optimized}`)}

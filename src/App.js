@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import ImageStream from "./components/ImageStream";
 import Lightbox from "./components/Lightbox";
+import CinemaMode from './components/Cinema/index.js';
 
 import "./styles/styles.scss";
 
@@ -14,10 +15,11 @@ class App extends Component {
     this.state = {
       images: [],
       stickyNav: false,
-      lightbox: false
+      lightbox: false,
+      cinemaMode: false,
     };
     this.handleNavigation = this.handleNavigation.bind(this);
-    this.handleLightBox = this.handleLightBox.bind(this);
+    this.handleSlideShow = this.handleSlideShow.bind(this);
   }
 
   componentDidMount() {
@@ -1243,23 +1245,11 @@ class App extends Component {
     });
   }
 
-  handleLightBox(i, url) {
-    const lightboxWrapper = document.getElementById(
-      "horizontal-layout-alignment"
-    );
-    // const mountedImagePosition = document.getElementById('lightbox' + this.props.index).offsetLeft;
-    // console.log('mountedImagePosition', mountedImagePosition)
-    window.scrollTo({
-      top: 0,
-      left: 500,
-      behavior: "smooth"
-    });
+  handleSlideShow(id) {
     this.setState({
-      lightbox: !this.state.lightbox,
-      index: i,
-      url: url
-      // mountedImagePosition: mountedImagePosition,
-    });
+        cinemaMode: !this.state.cinemaMode,
+        imageId: id,
+    })
   }
 
   render() {
@@ -1270,7 +1260,9 @@ class App extends Component {
       scrollTopBtn,
       lightbox,
       index,
-      url
+      url,
+      cinemaMode,
+      imageId,
     } = this.state;
     const imageClass = images.map(c => c.class);
     const uniqueClass = uniq(imageClass);
@@ -1295,23 +1287,21 @@ class App extends Component {
               uniqueClass={uniqueClass}
               navItem={navItem}
               scrollTopBtn={scrollTopBtn}
-              handleLightBox={this.handleLightBox}
+              handleSlideShow={this.handleSlideShow}
               lightbox={lightbox}
               index={index}
               url={url}
             />
           </div>
         </div>
-        {lightbox && (
-          <Lightbox
-            index={index}
-            url={url}
-            images={images}
-            handleLightBox={this.handleLightBox}
-            imagePath={imagePath}
-            imageDetails={imageDetails}
+        {cinemaMode &&
+          <CinemaMode
+              imageId={imageId}
+              imagePath={imagePath}
+              imageDetails={imageDetails}
+              dismiss={this.handleSlideShow}
           />
-        )}
+      }
       </React.Fragment>
     );
   }
